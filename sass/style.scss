@@ -1,0 +1,108 @@
+@charset "utf-8";
+// @import "base";
+$color_white: #fafafa;
+$color_black: #333;
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+p {
+    margin-bottom: 1em;
+}
+body {
+    color: $color_black;
+    background: $color_white;
+    padding-top: 100px;
+}
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+    &:first-line {
+        font-size: 0.8em;
+    }
+}
+.calculation {
+    max-width: 300px;
+    margin: 0 auto 40px;
+    .item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        background: $color_white;
+        border: solid 1px $color_black;
+        border-radius: 10px;
+        overflow: hidden;
+        input {
+            width: 100%;
+            flex: 1;
+            padding: 0.6em 1em;
+            background: $color_white;
+            outline: none;
+            border: none;
+            font-size: 20px;
+            letter-spacing: 0.05em;
+            font-weight: bold;
+        }
+        span {
+            font-weight: bold;
+            font-size: 14px;
+            width: 4.5em;
+            text-align: center;
+        }
+    }
+    button {
+        display: block;
+        width: 140px;
+        margin: auto;
+        padding: 0.3em 1em;
+        background: $color_black;
+        color: $color_white;
+        border-radius: 10px;
+        letter-spacing: 0.2em;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        &:first-letter {
+            padding-left: 0.4em;
+        }
+    }
+}
+.introduction {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: rgba($color_black, 0.05);
+    font-size: 14px;
+
+    border-radius: 10px;
+}
+table {
+    font-size: 14px;
+    text-align: right;
+    tr {
+        td {
+            span {
+                font-size: 0.7em;
+            }
+        }
+    }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>変換計算 平米(㎡)/坪/畳</title>
+  <link rel='stylesheet' href='css/style.css'>
+  <script src="js/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+  <h1>変換計算<br>平米(㎡)/坪/畳</h1>
+  <div class="calculation">
+    <div class="item"><input type="number" min="0" step="1" id="m2"><span>平米<small>(㎡)</small></span></div>
+    <div class="item"><input type="number" min="0" step="1" id="tsubo"><span>坪</span></div>
+    <div class="item"><input type="number" min="0" step="1" id="jou"><span>畳</span></div>
+    <button>計算する</button>
+  </div>
+
+  <script>
+    $(function () {
+      let input_m2 = $("#m2");
+      let input_tsubo = $("#tsubo");
+      let input_jou = $("#jou");
+      let num_m2 = input_m2.val();
+      let num_tsubo = input_tsubo.val();
+      let num_jou = input_jou.val();
+      function cal_m2() {
+        num_m2 = input_m2.val();
+        num_tsubo = num_m2 * 0.3025;
+        num_tsubo = num_tsubo * 100;
+        num_tsubo = Math.round(num_tsubo);
+        num_tsubo = num_tsubo / 100;
+        num_jou = num_m2 * 0.60379;
+        num_jou = num_jou * 100;
+        num_jou = Math.round(num_jou);
+        num_jou = num_jou / 100;
+        setVal();
+      }
+      function cal_tsubo() {
+        num_tsubo = input_tsubo.val();
+        num_m2 = num_tsubo * 3.30578;
+        num_m2 = num_m2 * 100;
+        num_m2 = Math.round(num_m2);
+        num_m2 = num_m2 / 100;
+        num_jou = num_m2 / 1.6562;
+        num_jou = num_jou * 100;
+        num_jou = Math.round(num_jou);
+        num_jou = num_jou / 100;
+        setVal();
+      }
+      function cal_jou() {
+        num_jou = input_jou.val();
+        num_tsubo = num_jou * 0.5010;
+        num_tsubo = num_tsubo * 100;
+        num_tsubo = Math.round(num_tsubo);
+        num_tsubo = num_tsubo / 100;
+        num_m2 = num_tsubo * 3.30578;
+        num_m2 = num_m2 * 100;
+        num_m2 = Math.round(num_m2);
+        num_m2 = num_m2 / 100;
+        setVal();
+      }
+      input_tsubo.change(function () {
+        cal_tsubo();
+      });
+      input_m2.change(function () {
+        cal_m2();
+      });
+      input_jou.change(function () {
+        cal_jou();
+      });
+      function setVal() {
+        input_tsubo.attr("value", num_tsubo);
+        input_jou.attr("value", num_jou);
+        input_m2.attr("value", num_m2);
+      }
+      setVal();
+    });
+
+  </script>
+</body>
+
+</html>
