@@ -19,7 +19,7 @@
 
   <title>変換計算 平米(㎡)/坪/畳</title>
   <link rel='stylesheet' href='css/style.css'>
-  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -89,6 +89,10 @@
         input_m2.attr("value", num_m2);
       }
       setVal();
+      //表
+      for (let i = 1; i <= 280; i++) {
+        $('table').append('<tr><td>' + i + '<span>平米(㎡)</span></td><td>' + Math.round(i * 0.3025 * 100) / 100 + '<span>坪</span></td><td>' + Math.round(i * 0.60379 * 100) / 100 + '<span>畳</span></td></tr>');
+      }
     });
 
   </script>
